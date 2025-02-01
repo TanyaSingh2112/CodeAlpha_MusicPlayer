@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+</head>
+<body class="bg-warning">
+    <div class="container-fluid">
+        <div class="row p-5">
+            <div class="col-sm-3 mx-auto shadow p-5 bg-light" style="border-radius: 30px;">
+                <img src="images/music.png" alt="" class="w-100" id="img">
+                <audio src="a.mp3" id="song"></audio>
+                <div class="row text-center py-3">
+                    <div class="col-sm-4">
+                        <i class="fa-solid fa-backward" onclick="pre()"></i>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa-solid fa-play fa-2xl" onclick="playpause()" id="songbtn"></i>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa-solid fa-forward" onclick="ne()"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var song=document.getElementById("song");
+        var songbtn=document.getElementById("songbtn");
+        var songs=["Pahle bhi main tumse.mp3","Tu Ijazat De Agar Tujhse Thoda.mp3","Agar tum sath ho.mp3","a.mp3"];
+        var img=document.getElementById("img");
+        var image=["Sajni.jpeg","animal.jpeg","yeh jawani.jpeg","music.png"];
+        var i=0;
+
+        function playpause()
+        {
+            if(song.paused)
+            {
+            song.play();
+            songbtn.classList.add("fa-pause");
+            songbtn.classList.remove("fa-play");
+            image.classList.add
+            }
+            else
+            {
+                song.pause();
+                songbtn.classList.add("fa-play");
+                songbtn.classList.remove("fa-pause");
+            }
+
+        }
+        function ne()
+        {
+            song.src=songs[i];
+            img.src="images/"+image[i];
+            i++;
+            song.play();
+            songbtn.classList.add("fa-pause");
+            songbtn.classList.remove("fa-play");
+            if(i==4)   
+            {
+                i=0;
+            } 
+        }
+        function pre()
+            {
+                song.src=songs[i];
+                img.src="images/"+image[i];
+                i--;
+                song.play();
+                songbtn.classList.add("fa-pause");
+                songbtn.classList.remove("fa-play");
+                if(i==-1)
+            {
+                i=3;
+            }
+
+            }
+    </script>
+</body>
+</html>
